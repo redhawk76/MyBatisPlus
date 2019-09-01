@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dta/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.redhawk.mybatisplus.mapper.UserMapper">
+    <select id="selectAllXml" resultType="xyz.redhawk.mybatisplus.domain.User">
+        select * from user ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectUserPage" resultType="xyz.redhawk.mybatisplus.domain.User">
+        select * from user ${ew.customSqlSegment}
+    </select>
+
+</mapper>
