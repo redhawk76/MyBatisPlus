@@ -6,6 +6,7 @@ package xyz.redhawk.mybatisplus.domain;/**
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -21,7 +22,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("user")
-public class User {
+public class User implements StringPool {
     //User 主键
     @TableId("id")
     private Long id;

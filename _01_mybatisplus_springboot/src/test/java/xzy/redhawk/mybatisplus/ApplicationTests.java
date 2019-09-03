@@ -281,13 +281,15 @@ public class ApplicationTests {
     @Test
     public void selectUserPage() {
         LambdaQueryWrapper<User> userLambdaQueryWrapper = Wrappers.<User>lambdaQuery();
+        userLambdaQueryWrapper.select(User::getId, User::getAge);
         // 第一个参数 , 第二个参数
         Page<User> userPage = new Page<>(1, 2);
 
-        IPage<User> userIPage = userMapper.selectUserPage(userPage, userLambdaQueryWrapper);
+        List<User> userIPage = userMapper.selectUserPage(userPage, userLambdaQueryWrapper);
 
-        System.out.println("总页数:" + userIPage.getPages());
-        System.out.println("总记录数:" + userIPage.getTotal());
+        userIPage.forEach(System.out::println);
+     /*   System.out.println("总页数:" + userIPage.getPages());
+        System.out.println("总记录数:" + userIPage.getTotal());*/
 
     }
 
@@ -300,15 +302,15 @@ public class ApplicationTests {
         user.setAge(26);
         user.setEmail("972419185@qq.com");
         int i = userMapper.updateById(user);
-}
+    }
 
     //条件构造器作为参数更新
     @Test
-    public void updateWrapper(){
+    public void updateWrapper() {
         //创建一个更新构造器
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<User>();
         //修改一个名字叫redhawk的记录
-        updateWrapper.eq("name","redhawk").eq("age",44);
+        updateWrapper.eq("name", "redhawk").eq("age", 44);
         User user = new User();
         user.setEmail("redhawk26@qq.com");
         user.setAge(27);
@@ -318,10 +320,10 @@ public class ApplicationTests {
 
     //条件构造器Lambda表达式方法更新
     @Test
-    public void updateWrapperLambda(){
+    public void updateWrapperLambda() {
         LambdaQueryWrapper<User> userLambdaQueryWrapper = Wrappers.<User>lambdaQuery();
 
-        userLambdaQueryWrapper.eq(User::getName,"redhawk").eq(User::getAge,27);
+        userLambdaQueryWrapper.eq(User::getName, "redhawk").eq(User::getAge, 27);
         User user = new User();
         user.setName("redhawkLambda");
         user.setEmail("redhawk26@qq.com");
@@ -333,37 +335,38 @@ public class ApplicationTests {
 
     //条件构造器set方法更新
     @Test
-    public void updateWrapperSet(){
+    public void updateWrapperSet() {
 
     }
 
 
     //根据id删除
     @Test
-    public void deleteById(){
+    public void deleteById() {
         //返回的是一个影响记录数
         int i = userMapper.deleteById(1167775750930067458L);
-        System.out.println("删除条数:"+i);
+        System.out.println("删除条数:" + i);
     }
 
     //根据字段删除
-    public void deleteMap(){
-        Map<String,Object> map = new HashMap();
-        map.put("name","redhawkLambda");
-        map.put("age","25");
+    public void deleteMap() {
+        Map<String, Object> map = new HashMap();
+        map.put("name", "redhawkLambda");
+        map.put("age", "25");
         int i = userMapper.deleteByMap(map);
-        System.out.println("删除条数:"+i);
+        System.out.println("删除条数:" + i);
     }
 
 
     //条件构造器删除
     @Test
-    public void deleteWrapper(){
+    public void deleteWrapper() {
 
 
     }
+
     //批量删除
-    public void deleteByIds(){
+    public void deleteByIds() {
 
     }
 

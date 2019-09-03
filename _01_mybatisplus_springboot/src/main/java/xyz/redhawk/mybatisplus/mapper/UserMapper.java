@@ -30,6 +30,6 @@ public interface UserMapper extends BaseMapper<User> {
 
 
     //自定义SQL, 并且分页查询
-    IPage<User> selectUserPage(Page<User> page, @Param("ew")Wrapper<User> wrapper);
+    List<User> selectUserPage(Page<User> page, @Param("ew")Wrapper<User> wrapper);
 
 }
