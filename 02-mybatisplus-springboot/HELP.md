@@ -15,4 +15,5 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
 MyBatisPlus 整合 SpringBoot 工程
+你这里只需要整合一下就好了, 往后的工程可以复制这个东来用
 
