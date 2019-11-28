@@ -14,3 +14,4 @@ The following guides illustrate how to use some features concretely:
 * [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
+入门案例, 首先熟悉代码生成器功能, 采用默认模板, 暂不考虑自定义模板
