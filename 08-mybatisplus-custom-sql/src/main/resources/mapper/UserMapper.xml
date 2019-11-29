@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.redhawk.mybatisplus.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="xyz.redhawk.mybatisplus.objects.entitys.User">
+        <result column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="sex" property="sex"/>
+        <result column="empId" property="empId"/>
+        <result column="entry_time" property="entryTime"/>
+        <result column="address" property="address"/>
+        <result column="birthday" property="birthday"/>
+        <result column="salary" property="salary"/>
+        <result column="annual_alary" property="annualAlary"/>
+        <result column="dimission" property="dimission"/>
+        <result column="role" property="role"/>
+        <result column="calendar" property="calendar"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        user_name, sex, empId, entry_time, address, birthday, salary, annual_alary, dimission, role, calendar
+    </sql>
+
+    <select id="selectXmlAll" resultType="xyz.redhawk.mybatisplus.objects.entitys.User">
+        select * from user ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectUserPage" resultType="xyz.redhawk.mybatisplus.objects.entitys.User">
+        select * from user ${ew.customSqlSegment}
+</select>
+
+
+</mapper>
