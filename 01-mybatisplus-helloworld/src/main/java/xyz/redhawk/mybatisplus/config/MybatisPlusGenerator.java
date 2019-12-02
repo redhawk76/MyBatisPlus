@@ -23,7 +23,7 @@ public class MybatisPlusGenerator {
     /**
      * 项目路径
      */
-    private static String canonicalPath = "C:\\C\\studyWorkspace\\MyBatisPlusStudy\\01-mybatisplus-helloworld";
+    private static String canonicalPath = "D:\\privateGit\\MyBatisPlus\\01-mybatisplus-helloworld";
 
     /**
      * 基本包名
@@ -70,9 +70,9 @@ public class MybatisPlusGenerator {
             globalConfig.setAuthor(authorName);
             globalConfig.setMapperName("%sMapper");
             globalConfig.setXmlName("%sMapper");
-//            globalConfig.setServiceName("%sService");
-            globalConfig.setServiceImplName("%sService");
-//            globalConfig.setControllerName("%sController");
+            globalConfig.setServiceName("%sService");
+            globalConfig.setServiceImplName("%sServiceImpl");
+            globalConfig.setControllerName("%sController");
             generator.setGlobalConfig(globalConfig);
 
             // 数据源配置
@@ -91,7 +91,7 @@ public class MybatisPlusGenerator {
             packageConfig.setMapper("mapper");
             packageConfig.setService("service");
             packageConfig.setXml("mapper.xml");
-//            packageConfig.setServiceImpl("service");
+            packageConfig.setServiceImpl("service");
             generator.setPackageInfo(packageConfig);
 
             InjectionConfig injectionConfig = new InjectionConfig() {

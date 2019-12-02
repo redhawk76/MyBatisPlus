@@ -1,1 +1,4 @@
-
+mybatis-plus:
+  type-enums-package: xyz.redhawk.mybatisplus.enums
+  configuration:
+    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
