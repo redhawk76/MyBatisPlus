@@ -5,6 +5,31 @@ spring:
     username: root
     password: root
 mybatis-plus:
+  # 通用枚举类包扫描
   type-enums-package: xyz.redhawk.mybatisplus.enums
+  # 通用设置
   configuration:
+    # 默认枚举处理类,如果配置了该属性,枚举将统一使用指定处理器进行处理
     default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+  # MyBatis 配置文件位置
+  config-location:
+  # MyBatis Mapper 所对应的 XML 文件位置
+  mapper-locations:
+  # 全局设置
+  global-config:
+    # 数据库映射相关设置
+    db-config:
+      # 全局默认主键类型
+      id-type: auto
+      # 表名前缀
+      table-prefix:
+      # 逻辑删除已删除值
+      logic-delete-value:
+      # 逻辑删除未删除值
+      logic-not-delete-value:
+      # 字段验证策略之 insert
+      # 在 insert 的时候的字段验证策略 目前没有默认值,等 {@link #fieldStrategy} 完全去除掉,会给个默认值 NOT_NULL 没配则按 {@link #fieldStrategy} 为准
+      insert-strategy: default
+      update-strategy: default
+      select-strategy: default
+
