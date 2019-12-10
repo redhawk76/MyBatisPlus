@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/study?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://47.98.48.133:3306/study?useSSL=false&serverTimezone=UTC
     username: root
     password: root
 mybatis-plus:
@@ -24,9 +24,9 @@ mybatis-plus:
       # 表名前缀
       table-prefix:
       # 逻辑删除已删除值
-      logic-delete-value:
+      logic-delete-value: 1
       # 逻辑删除未删除值
-      logic-not-delete-value:
+      logic-not-delete-value: 0
       # 字段验证策略之 insert
       # 在 insert 的时候的字段验证策略 目前没有默认值,等 {@link #fieldStrategy} 完全去除掉,会给个默认值 NOT_NULL 没配则按 {@link #fieldStrategy} 为准
       insert-strategy: default

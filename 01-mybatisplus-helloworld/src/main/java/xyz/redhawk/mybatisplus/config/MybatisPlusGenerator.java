@@ -42,7 +42,7 @@ public class MybatisPlusGenerator {
             // 开启 Kotlin 模式
             globalConfig.setKotlin(false);
             // 开启 swagger2 模式
-            globalConfig.setSwagger2(false);
+            globalConfig.setSwagger2(true);
             // 开启 ActiveRecord 模式 (活动记录)
             globalConfig.setActiveRecord(true);
             // 开启 BaseResultMap
@@ -85,7 +85,7 @@ public class MybatisPlusGenerator {
             String driverName = "com.mysql.jdbc.Driver";
             dataSourceConfig.setDriverName(driverName);
             dataSourceConfig.setDbType(DbType.MYSQL);
-            String url = "jdbc:mysql://127.0.0.1:3306/study?useSSL=false";
+            String url = "jdbc:mysql://47.98.48.133:3306/study?useSSL=false";
             dataSourceConfig.setUrl(url);
             String username = "root";
             dataSourceConfig.setUsername(username);

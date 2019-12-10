@@ -1,12 +1,16 @@
 package xyz.redhawk.mybatisplus.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 import xyz.redhawk.mybatisplus.entity.User;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Repository
-@Mapper
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author liping404
+ * @since 2019-12-10
+ */
 public interface UserMapper extends BaseMapper<User> {
 
 }

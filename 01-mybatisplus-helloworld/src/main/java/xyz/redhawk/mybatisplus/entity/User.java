@@ -3,10 +3,17 @@ package xyz.redhawk.mybatisplus.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 import xyz.redhawk.mybatisplus.enums.UserIsDeleted;
 
-import java.io.Serializable;
+import javax.validation.constraints.NotNull;
 
 /**
  * <p>
@@ -14,86 +21,38 @@ import java.io.Serializable;
  * </p>
  *
  * @author liping404
- * @since 2019-11-28
+ * @since 2019-12-10
  */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@ApiModel(value="User对象", description="")
 public class User extends Model<User> {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    @NotNull
+    @TableField("username")
     private String username;
 
+    @TableField("password")
     private String password;
 
     @TableField("roleId")
     private Integer roleId;
 
-    /**
-     * 用户状态: 1: 锁定; 0: 正常
-     */
+    @ApiModelProperty(value = "用户状态: 1: 锁定; 0: 正常")
+    @TableLogic
     @TableField("isDeleted")
     private UserIsDeleted isDeleted;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public User setId(Integer id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public User setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public User setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public Integer getRoleId() {
-        return roleId;
-    }
-
-    public User setRoleId(Integer roleId) {
-        this.roleId = roleId;
-        return this;
-    }
-
-    public UserIsDeleted getIsDeleted() {
-        return isDeleted;
-    }
-
-    public void setIsDeleted(UserIsDeleted isDeleted) {
-        this.isDeleted = isDeleted;
-    }
 
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", roleId=" + roleId +
-                ", isDeleted=" + isDeleted.getValue() +
-                '}';
-    }
 }
