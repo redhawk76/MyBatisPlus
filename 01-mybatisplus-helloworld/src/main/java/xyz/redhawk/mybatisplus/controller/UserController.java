@@ -30,15 +30,13 @@ public class UserController {
 
     @ApiOperation("新增用户")
     @PostMapping("/add")
-    public RestResponse add(@Valid User user) {
-
+    public RestResponse<User> add(@Valid User user) {
         return RestResponse.success(new User());
     }
 
     @ApiOperation("更新用户")
     @GetMapping("update")
     public RestResponse update(@Valid User user) {
-
         return RestResponse.success(new User());
     }
 }

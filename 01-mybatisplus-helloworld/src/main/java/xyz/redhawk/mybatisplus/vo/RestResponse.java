@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  */
 @ApiModel(value = "响应信息")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RestResponse {
+public class RestResponse<T> {
 
     private static final Integer DEFAULT_SUCCESS_CODE = 0;
     private static final Integer DEFAULT_FAIL_CODE = 1;
@@ -28,7 +28,7 @@ public class RestResponse {
     /**
      * 返回结果集
      */
-    private Object result = null;
+    private T result = null;
 
     private RestResponse(Integer code, String msg, Boolean success) {
         this.code = code;
@@ -36,7 +36,7 @@ public class RestResponse {
         this.success = success;
     }
 
-    private RestResponse(String msg, Object result, Boolean success) {
+    private RestResponse(String msg, T result, Boolean success) {
         this.msg = msg;
         this.result = result;
         this.success = success;
@@ -47,7 +47,7 @@ public class RestResponse {
         this.success = success;
     }
 
-    private RestResponse(Object result, Boolean success) {
+    private RestResponse(T result, Boolean success) {
         this.result = result;
         this.success = success;
     }
@@ -67,12 +67,12 @@ public class RestResponse {
      *
      * @return
      */
-    public static RestResponse success(Object result) {
-        return new RestResponse(result, Boolean.TRUE);
+    public static <T> RestResponse<T> success(T result) {
+        return new RestResponse<T>(result, Boolean.TRUE);
     }
 
-    public static RestResponse success(String msg, Object result) {
-        return new RestResponse(msg, result, Boolean.TRUE);
+    public static <T> RestResponse<T> success(String msg, T result) {
+        return new RestResponse<T>(msg, result, Boolean.TRUE);
     }
 
     /**
@@ -104,11 +104,11 @@ public class RestResponse {
         this.msg = msg;
     }
 
-    public Object getResult() {
+    public T getResult() {
         return result;
     }
 
-    public void setResult(Object result) {
+    public void setResult(T result) {
         this.result = result;
     }
 
